@@ -333,7 +333,7 @@ static NSString* const WPEditorViewWebViewContentSizeKey = @"contentSize";
 
 - (void)keyboardDidShow:(NSNotification *)notification
 {
-    [self scrollToCaretAnimated:NO];
+//    [self scrollToCaretAnimated:NO];
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification
@@ -618,7 +618,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
          // go behind the virtual keyboard.
          //
          [self refreshVisibleViewportAndContentSize];
-         [self scrollToCaretAnimated:NO];
+//         [self scrollToCaretAnimated:NO];
      }];
 }
 
@@ -969,7 +969,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
              self.lineHeight = @([parameterValue floatValue]);
          }
      } onComplete:^() {
-         [self scrollToCaretAnimated:NO];
+//         [self scrollToCaretAnimated:NO];
      }];
 }
 
@@ -1809,17 +1809,17 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
         [self showVisualEditor];
     }
     
-    [self.titleField disableEditing];
+//    [self.titleField disableEditing];
     [self.contentField disableEditing];
-    [self.sourceViewTitleField setEnabled:NO];
+//    [self.sourceViewTitleField setEnabled:NO];
     [self.sourceView setEditable:NO];
 }
 
 - (void)enableEditing
 {
-    [self.titleField enableEditing];
+//    [self.titleField enableEditing];
     [self.contentField enableEditing];
-    [self.sourceViewTitleField setEnabled:YES];
+//    [self.sourceViewTitleField setEnabled:YES];
     [self.sourceView setEditable:YES];
 }
 

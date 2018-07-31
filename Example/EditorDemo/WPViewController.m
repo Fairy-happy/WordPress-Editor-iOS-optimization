@@ -467,8 +467,16 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        NSURL *assetURL = info[UIImagePickerControllerReferenceURL];
-        [self addAssetToContent:assetURL];
+        NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
+        if ([type isEqualToString:@"public.image"]) {
+            UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+            NSData * imageData = UIImageJPEGRepresentation(image,0.7);
+            [self addImageDataToContent:imageData];
+        } else {
+            //视频
+            NSURL *assetURL = info[UIImagePickerControllerReferenceURL];
+            [self addAssetToContent:assetURL];
+        }
     }];
     
 }

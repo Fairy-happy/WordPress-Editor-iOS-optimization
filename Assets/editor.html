@@ -60,18 +60,22 @@
 		// DRM: onLoad does not get called when offline, if there's remote content in the editor
 		// (such as remote images).  We use the 'ready' event for this reason.
 		//
-		$(document).ready(function() {
+        $(document).ready(function() {
             ZSSEditor.init(callbacker, logger);
-		});
+            $('#zss_field_content').focus().on('click','img',function(e){
+                        e.preventDefault();
+                        return false;
+                                });
+            });
 	</script>
     <link rel="stylesheet" type="text/css" href="editor.css">
   </head>
   <body>
-      <div contenteditable="false" id="zss_field_title" class="field" nostyle>
-      </div>
-      <div contenteditable="false" id="separatorDiv" >
-          <hr/>
-      </div>
+<!--      <div contenteditable="false" id="zss_field_title" class="field" nostyle>-->
+<!--      </div>-->
+<!--      <div contenteditable="false" id="separatorDiv" >-->
+<!--          <hr/>-->
+<!--      </div>-->
       <div contenteditable="false" id="zss_field_content" class="field">
       </div>
   </body>
