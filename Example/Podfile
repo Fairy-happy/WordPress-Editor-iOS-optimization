@@ -1,0 +1,14 @@
+platform :ios, '10.0'
+use_frameworks!
+# Don't inhibit all warnings for all pods… do it individually.  We need the editor
+# POD to show all warnings.
+
+target 'EditorDemo' do
+  pod 'WordPress-iOS-Editor', :path => '../'
+  pod 'CocoaLumberjack', '~> 3.2.1', :inhibit_warnings => true
+end
+
+target 'EditorDemoTests' do
+  pod 'CocoaLumberjack', '~> 3.2.1', :inhibit_warnings => true
+end
+
